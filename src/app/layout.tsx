@@ -22,7 +22,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shreya-sawarn.vercel.app"),
+  metadataBase: new URL("https://www.shreyasawarn.in"),
   title: "Shreya Sawarn — Software Engineer",
   description:
     "Software engineer focused on backend and full-stack development. REST APIs, authentication, and dependable database work — built across two internships and competitive programming.",

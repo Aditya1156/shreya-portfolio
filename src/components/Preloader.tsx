@@ -12,19 +12,23 @@ export default function Preloader() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     let n = 0;
+    const finish = () => {
+      setDone(true);
+      document.body.style.overflow = "";
+    };
     const id = setInterval(() => {
       n = Math.min(100, n + Math.floor(Math.random() * 9) + 4);
       setCount(n);
       if (n >= 100) {
         clearInterval(id);
-        setTimeout(() => {
-          setDone(true);
-          document.body.style.overflow = "";
-        }, 550);
+        setTimeout(finish, 550);
       }
     }, 110);
+    // failsafe: never let the loader trap the page
+    const failsafe = setTimeout(finish, 4000);
     return () => {
       clearInterval(id);
+      clearTimeout(failsafe);
       document.body.style.overflow = "";
     };
   }, []);
